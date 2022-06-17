@@ -377,7 +377,7 @@ public class GeneralModel {
 		PreparedStatement pstm = null;
 		try {
 			conn = ConexionDB.getConexion();
-			String sql = "insert into respuestas values(?,?,?,?,?,?,?,?,curtime())";
+			String sql = "insert into respuestas values(?,?,?,?,?,?,?,?,?,curtime())";
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, bean.getHorario().getIdHorario());
 			pstm.setString(2, bean.getAlumno().getIdAlumno());
@@ -387,6 +387,7 @@ public class GeneralModel {
 			pstm.setInt(6, bean.getPregunta01());
 			pstm.setInt(7, bean.getPregunta02());
 			pstm.setInt(8, bean.getPregunta03());
+			pstm.setInt(9, bean.getPregunta04());
 			log.info(pstm);
 			contador = pstm.executeUpdate();
 		} catch (Exception e) {

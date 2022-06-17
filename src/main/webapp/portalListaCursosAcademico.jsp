@@ -184,7 +184,36 @@ document.oncontextmenu = function(){return false;}
 															</tbody>
 														</table>
 													</td>
-											</tr>	
+											</tr>
+											<tr>
+													<td>4</td>
+													<td>¿Con qué frecuencia el docente utiliza herramientas digitales (kahoot, quiziz, mentimeter, educaplay, etc) que hacen la clase más dinámica y participativa?
+														<table>
+														<tbody>
+															<tr>
+																<td>
+																	<label class="radio-inline pregunta_p04">
+																		<input required="required" type="radio" value="5" name="id_pregunta_p04_${i.index}" id="id_pregunta_p04_${i.index}">Siempre
+																	</label>
+																	<label class="radio-inline pregunta_p04">
+																		<input required="required" type="radio" value="4" name="id_pregunta_p04_${i.index}" id="id_pregunta_p04_${i.index}">A menudo
+																	</label>
+																	<label class="radio-inline pregunta_p04">
+																		<input required="required" type="radio" value="3" name="id_pregunta_p04_${i.index}" id="id_pregunta_p04_${i.index}">A veces
+																	</label>
+																	<label class="radio-inline pregunta_p04">
+																		<input required="required" type="radio" value="2" name="id_pregunta_p04_${i.index}" id="id_pregunta_p04_${i.index}">Raramente
+																	</label>
+																	<label class="radio-inline pregunta_p04">
+																		<input required="required" type="radio" value="1" name="id_pregunta_p04_${i.index}" id="id_pregunta_p04_${i.index}">Nunca
+																	</label>
+																</td>
+															</tr>
+															</tbody>
+														</table>
+													</td>
+											</tr>
+												
 										</tbody>
 									</table>
 									
@@ -298,6 +327,7 @@ document.oncontextmenu = function(){return false;}
 			 $('input[name=id_pregunta_p01_'+i+']').attr('checked',false);
 			 $('input[name=id_pregunta_p02_'+i+']').attr('checked',false);
 			 $('input[name=id_pregunta_p03_'+i+']').attr('checked',false);
+			 $('input[name=id_pregunta_p04_'+i+']').attr('checked',false);
 		}
 
 		function ValidarForm(w){
@@ -311,7 +341,7 @@ document.oncontextmenu = function(){return false;}
 		}
 
 		function grabarPregunta(w){
-				var json,id_num_preg, id_horario, id_alumno, id_respuesta, id_comentario, id_pro_final, id_pregunta01, id_pregunta02, id_pregunta03;
+				var json,id_num_preg, id_horario, id_alumno, id_respuesta, id_comentario, id_pro_final, id_pregunta01, id_pregunta02, id_pregunta03, id_pregunta04;
 				arrarRes= [];
 				id_num_preg = $("#id_num_preguntas_" + w).val();
 				id_pro_final = 0.0;
@@ -334,8 +364,9 @@ document.oncontextmenu = function(){return false;}
 				id_pregunta01 = $("#id_pregunta_p01_"+w+":checked").val();
 				id_pregunta02 = $("#id_pregunta_p02_"+w+":checked").val();
 				id_pregunta03 = $("#id_pregunta_p03_"+w+":checked").val();
+				id_pregunta04 = $("#id_pregunta_p04_"+w+":checked").val();
 				
-				json = JSON.stringify({"horario":{"idHorario":id_horario},"alumno":{"idAlumno":id_alumno},"respuesta":id_respuesta,"pfinal":id_pro_final,"comentario":id_comentario,"pregunta01":id_pregunta01,"pregunta02":id_pregunta02,"pregunta03":id_pregunta03});
+				json = JSON.stringify({"horario":{"idHorario":id_horario},"alumno":{"idAlumno":id_alumno},"respuesta":id_respuesta,"pfinal":id_pro_final,"comentario":id_comentario,"pregunta01":id_pregunta01,"pregunta02":id_pregunta02,"pregunta03":id_pregunta03,"pregunta04":id_pregunta04});
 	  
 				$.ajax({
 					url:  'saveRespuesta',
